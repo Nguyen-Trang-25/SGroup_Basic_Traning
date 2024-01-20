@@ -1,6 +1,76 @@
+*{
+    font-family: inter;
+}
+.header{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.logo{
+    margin-left: 112px;
+    display: inline-block;
+}
+.letter-J{
+    display: inline;
+    font-size: 22px;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 7px;
+    padding-right: 15px;
+    padding-left: 14px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+.name{
+    font-size: 18px;
+    align-items: center;
+    letter-spacing: 3px;
+}
+.icon {
+    display: inline-block;
+    margin-left: 950px;
+    color: #F26464;
+}
+.icon1{
+    padding: 10px;
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    background-color: #F26464;
+    color: white;
+}.icon2{
+    margin-left: 12px;
+    padding-left: 7.5px;
+    padding-right: 6px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    font-size: 14px;
+    background-color: #F26464;
+    border-radius: 25px;
+    color:white;
+    justify-content: center;
+}
+.icon3{
+    margin-left: 12px;
+    padding: 4.5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    background-color: #F26464;
+    border-radius: 25px;
+    color:white;
+    justify-content: center;
+}
+
+
 .avatar {
     display: inline-block;
-    margin-top: 180px;
     margin-left: 112px;
     width: 525px;
     height: 600px;
@@ -45,23 +115,48 @@
 }
 .aboutme {
     display: block;
-    width: 84px;
+    width: 86px;
     border-bottom: 3px solid #F26464;
     padding-bottom: 7px;
+    font-weight: 700;
+}
+.information > p{
+    color: #4a4a4a;
+    font-size: 24px;
+    font-weight: 300;
 }
 .download {
     margin-top: 50px;
+    margin-bottom: 50px;
     display: block;
     width: 200px;
     margin-left: 42%;
     text-align: center;
     border: solid 2px #F26464;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #F26464;
 }
 .core, .other {
     display: inline-block;
-    width: 48%;
+    width: 49%;
+}
+.core > p{
+    display: block;
+    width: 104px;
+    border-bottom: 3px solid #F26464;
+    padding-bottom: 7px;
+    font-weight: 700;
+}
+.other > p{
+    display: block;
+    width: 114px;
+    border-bottom: 3px solid #F26464;
+    padding-bottom: 7px;
+    font-weight: 700;
 }
 .skill {
     display: inline-block;
@@ -71,24 +166,26 @@
 }
 .core > span {
     display: inline-block;
-    margin-left: 15px;
+    margin-right: 15px;
     margin-bottom: 15px;
     box-sizing: border-box;
     border: solid 1px #D7D7D7;
+    color: #373737;
     padding: 10px 20px;
     border-radius: 27px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
 }
 .other > span {
     display: inline-block;
-    margin-left: 15px;
+    margin-right: 15px;
     margin-bottom: 15px;
     box-sizing: border-box;
     border: solid 1px #D7D7D7;
+    color: #373737;
     padding: 10px 20px;
     border-radius: 27px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
 }
 
