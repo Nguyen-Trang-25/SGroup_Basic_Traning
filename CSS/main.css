@@ -1,0 +1,94 @@
+.avatar {
+    display: inline-block;
+    margin-top: 180px;
+    margin-left: 112px;
+    width: 525px;
+    height: 600px;
+}
+.introduce {
+    font-family: inter;
+    display: inline-block;
+    margin-left: 100px;
+    font-family: arial;
+}
+#hi {
+    display: block;
+    height: 70px;
+}
+#letter {
+    display: block;
+    width: 500px;
+    margin-right: 112px;
+    font-size: 48px;
+    font-weight: 600;
+    display: block;
+    height: 400px;
+}
+#span1 {
+    display: inline-block;
+}
+#span2, #span3 {
+    margin-left: 45px;
+    display: inline-block;
+}
+.style1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #F26464;
+    height: 20px;
+}
+
+.information{
+    margin-top: 70px;
+    margin-left: 112px;
+    margin-right: 112px;
+}
+.aboutme {
+    display: block;
+    width: 84px;
+    border-bottom: 3px solid #F26464;
+    padding-bottom: 7px;
+}
+.download {
+    margin-top: 50px;
+    display: block;
+    width: 200px;
+    margin-left: 42%;
+    text-align: center;
+    border: solid 2px #F26464;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+.core, .other {
+    display: inline-block;
+    width: 48%;
+}
+.skill {
+    display: inline-block;
+    margin-left: 112px;
+    margin-right: 112px;
+    margin-top: 60px;
+}
+.core > span {
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: solid 1px #D7D7D7;
+    padding: 10px 20px;
+    border-radius: 27px;
+    font-size: 17px;
+    font-weight: 500;
+}
+.other > span {
+    display: inline-block;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: solid 1px #D7D7D7;
+    padding: 10px 20px;
+    border-radius: 27px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
