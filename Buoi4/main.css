@@ -51,9 +51,6 @@
 .name{
     display: block;
     text-align: left;
-    align-items: unset;
-    text-align: unset;
-    justify-content: left;
     margin: 0;
     color: #484B54;
     font-weight: 800;
@@ -161,7 +158,7 @@ p{
     overflow: hidden;
 }
 .lily-left{
-
+    margin-right: 40px;
 }
 .lily-left, .lily-right{
     position: relative;
@@ -191,20 +188,23 @@ p{
 .before{
     font-weight: 300;
 }
+.pic{
+}
 .pic img {
-    max-width: none;
-	transform: translate(-40px);
-	transition: opacity 0.35s, transform 0.35s;
+    width: 520px;
+    height: 360px;
+	transform: translate(-80px);
+	transition: 0.5s;
 }
 .hind-lily{
     opacity: 0;
 }
 .lily-left:hover .content, .lily-right:hover .content{
-    transform: translateY(-30px);
+    transform: translateY(-40px);
 }
 .lily-left:hover .hind-lily, .lily-right:hover .hind-lily{
     opacity: 1;
 }
-.lily-left:hover .pic, .lily-right:hover .pic{
-    transform: translate(40px);
+.lily-left:hover img, .lily-right:hover img     {
+    transform: translate(3px);
 }
