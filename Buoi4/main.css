@@ -1,0 +1,210 @@
+.container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    background-color: #2f3238  ;
+    font-family: raleway;
+}
+.sadie{
+    display: flex;
+    width: auto;
+    height: 360px;
+    position: relative;
+    margin-bottom: 80px;
+}
+.left{
+    margin-right: 30px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.left, .right{
+    position: relative;
+    transition: 3s;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.text1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    font-size: 25px;
+    word-spacing: -0.15em;
+    font-weight: 300;
+    color: #484c61;;
+}
+.after{
+    font-weight: 800    ;
+}
+.name{
+    display: block;
+    text-align: left;
+    align-items: unset;
+    text-align: unset;
+    justify-content: left;
+    margin: 0;
+    color: #484B54;
+    font-weight: 800;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+.hind{
+    position: relative;
+    bottom: 10px;
+    bottom: 50px;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    padding: auto;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.left:hover .hind, .right:hover .hind{
+    opacity: 1  ;
+    transform: translateY(-20px);
+    color: aliceblue;
+}
+.text1:hover{
+    background: -webkit-linear-gradient(top, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+    transform: translateY(-40px);
+    height: 400px;
+    color: aliceblue;
+}
+
+.honey{
+    display: flex;
+    position: relative;
+    margin: 10px 1%;
+    max-height: 360px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 80px;
+    justify-content: space-between;
+}
+.honey-left{
+    margin-right: 30px;
+}
+.honey-left, .honey-right{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 480px;
+    transition: 0.5s;
+}
+.dream{
+    position: absolute;
+    bottom: 0;
+    padding: 30px 0px;
+    margin-left: -30px;
+    width: 480px;
+    transform: translate3d(0,-30px,0);
+    transition: 0.5s;
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+    word-spacing: -10px;
+}
+.now{
+    opacity: 0;
+}
+p{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    height: 10px;
+    background: #fff;
+    transform: translateY(23px);
+    opacity: 0;
+    transition: 0.5s;
+}
+.honey-left:hover .now, .honey-right:hover .now{
+    opacity: 1;
+    color: #fff;
+}
+.honey-left:hover .dream, .honey-right:hover .dream{
+    transform: translateY(6px);
+    color: #fff;
+}
+.honey-left:hover p, .honey-right:hover p{
+    opacity: 1;
+    bottom: 8px;
+}
+.pic1:hover{
+    opacity: 0.8;
+}
+
+
+
+.lily {
+	display: flex;
+    width: auto;
+    position: relative;
+    margin-bottom: 80px;
+    justify-content: space-between  ;
+    overflow: hidden;
+}
+.lily-left{
+
+}
+.lily-left, .lily-right{
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 480px;
+    flex-direction: column;
+    overflow: hidden;
+}
+.content{
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    transition: 0.5s;
+}
+.pic {
+    position: relative;
+	display: block;
+	opacity: 0.8;
+    transition: 0.5s;
+}
+.text{
+    font-weight: 800;
+    font-size: 30px;
+}
+.before{
+    font-weight: 300;
+}
+.pic img {
+    max-width: none;
+	transform: translate(-40px);
+	transition: opacity 0.35s, transform 0.35s;
+}
+.hind-lily{
+    opacity: 0;
+}
+.lily-left:hover .content, .lily-right:hover .content{
+    transform: translateY(-30px);
+}
+.lily-left:hover .hind-lily, .lily-right:hover .hind-lily{
+    opacity: 1;
+}
+.lily-left:hover .pic, .lily-right:hover .pic{
+    transform: translate(40px);
+}
