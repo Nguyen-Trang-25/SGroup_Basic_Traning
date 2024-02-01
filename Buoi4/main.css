@@ -180,6 +180,7 @@ p{
 	display: block;
 	opacity: 0.8;
     transition: 0.5s;
+    transform: scale(1.3);
 }
 .text{
     font-weight: 800;
