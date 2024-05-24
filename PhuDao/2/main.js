@@ -29,8 +29,8 @@ btn.addEventListener("click",function(){
           console.log(` - Size: ${mostExpensiveProduct.variant.size || 'N/A'} - Color: ${mostExpensiveProduct.variant.color || 'N/A'}`);
           document.querySelector(".name").innerHTML = `${mostExpensiveProduct.title}`
           document.querySelector(".price").innerHTML = `Price: $${highestPrice} USD`
-          document.querySelector(".option p").innerHTML = "Option: "
-          document.querySelector(".option .size").innerHTML = ` - Size: ${mostExpensiveProduct.variant.size} - Color: ${mostExpensiveProduct.variant.color}`
+          // document.querySelector(".option p").innerHTML = "Option: "
+          // document.querySelector(".option .size").innerHTML = ` - Size: ${mostExpensiveProduct.variant.size} - Color: ${mostExpensiveProduct.variant.color}`
 
         }
     })
