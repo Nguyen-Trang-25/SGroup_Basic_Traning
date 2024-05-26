@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="main">
-        <div class="information">
+        <div class="max_price">
             <button>Tìm mặt hàng giá cao nhất</button>
             <div class="name"></div>
             <div class="price"></div>
@@ -15,6 +15,23 @@
                 <p></p>
                 <div class="size"></div>
             </div>
+        </div>
+        <div class="total_price">
+            <p></p>
+            <button>Tính tổng tiền</button>
+            <div class="total"></div>
+            <p></p>
+        </div>
+        <div class="sold_out">
+            <button>Lọc các sản phẩm sold out</button>
+            <ul class="sold_out_list"></ul>
+        </div>
+        <div class="filter_price">
+            <p>Nhập khoảng giá</p>
+            <input type="text" placeholder="start">
+            <input type="text" placeholder="end">
+            <button>Lọc các sản phẩm phù hợp</button>
+            <div class="result"></div>
         </div>
     </div>
     <script src="./main.js"></script>
