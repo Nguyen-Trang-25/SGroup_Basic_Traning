@@ -1,42 +1,5 @@
 const apiUrl = "https://svc-0-staging-usf.hotyon.com/search?apiKey=1fedccb4-262f-4e65-ae6d-d01e8024fe83";
 
-// btn.addEventListener("click",function(){
-//   fetch(apiUrl)
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log(data)
-//         let mostExpensiveProduct = null;
-//         let highestPrice = 0.0;
-  
-//         // Duyệt qua các sản phẩm
-//         data.data.items.forEach(product => {
-//           product.variants.forEach(variant => {
-//             const priceValue = variant.price; 
-  
-//             //Tìm sản phẩn đắt nhất
-//             if (priceValue > highestPrice) {
-//               highestPrice = priceValue;  
-//               mostExpensiveProduct = { ...product, variant };  
-//             }
-//           });
-//         });
-  
-  
-//         if (mostExpensiveProduct) {
-//           console.log(`${mostExpensiveProduct.title}`);
-//           console.log(`Price: $${highestPrice} USD`);
-//           console.log("Option:");
-//           console.log(` - Size: ${mostExpensiveProduct.variant.size || 'N/A'} - Color: ${mostExpensiveProduct.variant.color || 'N/A'}`);
-//           document.querySelector(".name").innerHTML = `${mostExpensiveProduct.title}`
-//           document.querySelector(".price").innerHTML = `Price: $${highestPrice} USD`
-//           // document.querySelector(".option p").innerHTML = "Option: "
-//           // document.querySelector(".option .size").innerHTML = ` - Size: ${mostExpensiveProduct.variant.size} - Color: ${mostExpensiveProduct.variant.color}`
-
-//         }
-//     })
-//     .catch(error => console.error('Error fetching products:', error));
-// })
-
 let data;
 let items;
 
@@ -54,6 +17,7 @@ async function fetchData() {
     maxPrice();
     totalPrice();
     findSoldOut();
+    filterSize();
     filterItemPrice();
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -99,32 +63,6 @@ function findIndexMaxPrice(){
     productIndex: productIndex,
     variantIndex: variantIndex,
   };
-}
-
-function getVariantOption(product, variantId){
-  const variant = product.variants[variantId];
-  const options = product.options;
-  
-  console.log(product.title);
-  console.log(variant.price);
-
-  const size = variant.options[0];
-  const color = variant.options[1];
-
-  if(options.length == 0){
-    console.log("NO size");
-    console.log("No color");
-  } else{
-    console.log(`Size: ${options[0].value[size] || 'Not'}`);
-    console.log(`Color: ${options[1].value[color] || 'Not'}`);
-  }
-
-  return {
-    name : product.title,
-    price : variant.price,
-    size : options[size],
-    color : options[color]
-  }
 }
 
 function totalPrice(){
@@ -187,11 +125,16 @@ function filterItemPrice() {
       });
     });
     console.log(filteredItems)
-    const resultContainer = document.querySelector(".result");
+    const resultContainer = document.querySelector(".filter_price .result");
     resultContainer.innerHTML = "";
 
     // Hiển thị danh sách sản phẩm và các biến thể có giá trong khoảng
     filteredItems.forEach(item => {
+      console.log(item.title)
+      const listItem = document.createElement("div");
+      listItem.innerHTML = `
+          <p>Name: ${item.title}</p>
+        `;
       const variants = item.variants.filter(variant => {
         const price = parseFloat(variant.price);
         return price >= input1 && price <= input2;
@@ -200,17 +143,126 @@ function filterItemPrice() {
       for(let i = 0;i<variants.length;i++){
         console.log(variants[i])
         const variantOption = getVariantOption(item, i);
-        const listItem = document.createElement("div");
-        listItem.innerHTML = `
-          <p>Name: ${variantOption.name}</p>
-          <p>Price: $${variantOption.price} USD</p>
-          <p>Option: ${variantOption.size ? `Size: ${variantOption.size}` : "No size"} - ${variantOption.color ? `Color: ${variantOption.color}` : "No color"}</p>
+        const listVariant = document.createElement("div");
+        listVariant.innerHTML = `
+          <p></p>
+          <p>Price: $${variantOption.price} USD | Option: ${variantOption.size ? `Size: ${variantOption.size}` : "No size"} | ${variantOption.color ? `Color: ${variantOption.color}` : "No color"}</p>
         `;
-        resultContainer.appendChild(listItem);
+      listItem.appendChild(listVariant);
       }
+      resultContainer.appendChild(listItem);
     });
 
     console.log("đang tìm");
   });
 }
 
+function getVariantOption(product, variantId){
+  const variant = product.variants[variantId];
+  const options = product.options;
+  console.log(options)
+  
+  // console.log(product.title);
+  // console.log(variant.price);
+  let sizeIndex
+  let colorIndex
+  if(options && options.length > 0){
+    sizeIndex = variant.options[0];
+    colorIndex = variant.options[1];
+    
+  } else {
+    console.log("NO size");
+    console.log("No color");
+  }
+
+  let size;
+  let color;
+  if (options)   {
+    if(options[0] && options[0].name === "Size"){
+      size = options[0].values[sizeIndex];
+    } else{
+      if(options[1] && options[1].name === "Size"){
+        size = options[1].values[sizeIndex];
+      } else{
+        size = null;
+      }
+    }
+    
+    if(options[0] && options[0].name === "Color"){
+      color = options[0].values[sizeIndex];
+    } else{
+      if(options[1] && options[1].name === "Color"){
+        color = options[1].values[sizeIndex];
+      } else{
+        color = null;
+      }
+    }
+    
+  }
+
+  // let arrSize = options[0]
+  return {
+    name : product.title,
+    price : variant.price,
+    size : size,
+    color : color
+  }
+}
+
+
+function filterSize(){
+  const btn = document.querySelector(".filter_size button");
+  
+  btn.addEventListener("click", function() {
+    const input = document.querySelector(".filter_size input").value;
+    console.log(input)
+    // console.log(input1, input2);
+
+    // Lọc các sản phẩm có size được nhập vào
+    let filteredItems = items.filter(item => {
+      // console.log(item.options)
+      const arr_options = item.options;
+      // Kiểm tra xem sản phẩm có size ko
+      return arr_options.some(option =>{
+        // console.log(option.name)
+        return option.name === "Size"
+      })
+    });
+    console.log(filteredItems)
+
+    const resultContainer = document.querySelector(".filter_size .result");
+    resultContainer.innerHTML = "";
+    filteredItems = filteredItems.filter(item => {
+      let arr_size = item.options.filter(option => option.name === "Size");
+      return arr_size.some(size => {
+          return size.values.includes(input);
+      });
+  });
+    console.log(filteredItems)
+
+    // Hiển thị danh sách sản phẩm và các biến thể có size thoa man 
+    filteredItems.forEach(item => {
+      const listItem = document.createElement("div");
+      listItem.innerHTML = `<p>Name: ${item.title}</p>`;
+      
+      // Lọc các biến thể có size trùng với giá trị nhập vào
+      const variants = item.variants.filter(variant => {
+          return variant.options.some(option => {
+            console.log(item.options.find(option => option.name ==="Size"))
+              return item.options.find(option => option.name ==="Size").values[option] === input
+          });
+      });
+      console.log(variants)
+      // Hiển thị các biến thể
+      variants.forEach(variant => {
+          const variantItem = document.createElement("div");
+          variantItem.innerHTML = `<p>Price: $${variant.price} USD | Option: ${variant.size ? `Size: ${variant.size}` : "No size"} | ${variant.color ? `Color: ${variant.color}` : "No color"}</p>
+`;
+          listItem.appendChild(variantItem);
+      });
+
+      resultContainer.appendChild(listItem);
+    console.log("đang tìm");
+  });
+  })
+}
